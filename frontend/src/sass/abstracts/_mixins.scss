@@ -8,3 +8,14 @@
 	align-items: $alignItems;
 	justify-content: $justifyContent;
 }
+
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin mq($media) {
+	@media (max-width: $media) {
+		@content;
+	}
+}

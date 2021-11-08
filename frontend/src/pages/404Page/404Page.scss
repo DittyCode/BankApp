@@ -1,0 +1,88 @@
+@import './../../sass/abstracts/mixins';
+@import './../../sass/placeholders/button';
+
+.Page404 {
+	@include size(50%, 50vh);
+	@include flex-mother(column);
+	&__back {
+		@extend %button;
+		margin-top: 5em;
+		padding: 2em 3em;
+	}
+}
+
+#Moon {
+	animation: MoonVisible 2s linear backwards;
+}
+#RightCloud {
+	animation: CloudRightMove 3s linear infinite;
+}
+#LeftCloud {
+	animation: CloudLeftMove 6s linear infinite;
+}
+#FirstLetter,
+#SecondLetter,
+#ThirdLetter {
+	opacity: 0;
+	animation: ShowLetter 3s linear forwards;
+}
+
+#LeftRing,
+#MiddleRing,
+#RightRing {
+	animation: 8s linear infinite alternate;
+}
+
+@keyframes MoveRing {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-50px);
+	}
+	100% {
+		transform: translateY(-100px);
+	}
+}
+
+@keyframes ShowLetter {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes CloudLeftMove {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-120px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes CloudRightMove {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(50px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes MoonVisible {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
