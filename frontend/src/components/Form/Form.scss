@@ -1,0 +1,48 @@
+@import './../../sass/abstracts/mixins';
+@import './../../sass/placeholders/button';
+
+.main {
+	@include size(50%, 50vh);
+	@include flex-mother();
+	min-height: 400px;
+	background-color: #dbc4c46d;
+	&__svg {
+		@include size(70%, 70%);
+		min-height: 270px;
+	}
+}
+
+.form {
+	@include flex-mother(column);
+	@include size(50%, 100%);
+	justify-content: space-around;
+	max-height: 270px;
+	&__title {
+		font-size: 2.5rem;
+		color: #433cc0;
+	}
+	&__item {
+		position: relative;
+		height: 35px;
+		min-height: 30px;
+		input {
+			@include size(100%, 100%);
+			padding-left: 1em;
+		}
+		label {
+			font-size: 1.3rem;
+		}
+		.awesome-icon {
+			position: absolute;
+			right: 0;
+			top: 100%;
+			transform: translate(-50%, -50%);
+			font-size: 2rem;
+			cursor: pointer;
+		}
+	}
+	&__btn {
+		@extend %button;
+		padding: 1em 3.5em;
+	}
+}
