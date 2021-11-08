@@ -1,7 +1,27 @@
+require('dotenv').config({ path: `${__dirname}/../config/.env` });
 const express = require('express');
-
+const db = require('./db/connect');
+const cors = require('cors');
 const app = express();
 
-app.listen(3000, () => {
-	console.log(`Server is listening at port : 3000`);
-});
+const SERVER_PORT = process.env.SERVER_PORT || 5000;
+
+// Middlewares
+
+app.use(cors());
+app.use(express.json());
+
+// Listeners
+
+const initServer = async () => {
+	try {
+		await db();
+		app.listen(SERVER_PORT, () => {
+			console.log(`Server is listening at port : ${SERVER_PORT}`);
+		});
+	} catch (err) {
+		return err;
+	}
+};
+
+initServer();
