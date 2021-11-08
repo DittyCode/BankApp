@@ -1,0 +1,10 @@
+@mixin flex-mother(
+	$flexDir: row,
+	$alignItems: center,
+	$justifyContent: center
+) {
+	display: flex;
+	flex-direction: $flexDir;
+	align-items: $alignItems;
+	justify-content: $justifyContent;
+}
